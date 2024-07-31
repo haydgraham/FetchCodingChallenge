@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct DessertDetailView: View {
-    var dessertName: String
+    var meal: Meal
     var body: some View {
-        Text("Dessert Detail View")
+        Text("\(meal.strMeal)")
     }
 }
 
 #Preview {
-    DessertDetailView(dessertName: "Ice Cream")
+    DessertDetailView(meal: Meal(strMeal: "ice Cream", strMealThumb: "sdfas", idMeal: "sasdfasd"))
 }
