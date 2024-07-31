@@ -19,7 +19,6 @@ struct DessertList: View {
                         Text(meal.strMeal)
                     }
                 }
-
             }
             .navigationTitle("Dessert Recipes")
             .task {
