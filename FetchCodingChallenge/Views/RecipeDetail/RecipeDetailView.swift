@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MealDetailView: View {
+struct RecipeDetailView: View {
     var meal: Meal
-    @StateObject private var viewModel = MealDetailViewModel()
+    @StateObject private var viewModel = RecipeDetailViewModel()
     
     var body: some View {
         VStack {

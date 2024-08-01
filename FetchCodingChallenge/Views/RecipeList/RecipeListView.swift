@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MealList: View {
-    @StateObject private var viewModel = MealViewModel()
+struct RecipeListView: View {
+    @StateObject private var viewModel = RecipeListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,7 +17,7 @@ struct MealList: View {
                     ProgressView()
                 } else {
                     ForEach(viewModel.meals) { meal in
-                        NavigationLink(destination: MealDetailView(meal: meal)) {
+                        NavigationLink(destination: RecipeDetailView(meal: meal)) {
                             HStack {
                                 if let imageUrl = URL(string: meal.strMealThumb) {
                                     AsyncImage(url: imageUrl) { phase in
@@ -57,6 +57,6 @@ struct MealList: View {
 
 struct DessertList_Previews: PreviewProvider {
     static var previews: some View {
-        MealList()
+        RecipeListView()
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class MealViewModel: ObservableObject {
+class RecipeListViewModel: ObservableObject {
     @Published var meals = [Meal]()
     @Published var isLoading = false
     
