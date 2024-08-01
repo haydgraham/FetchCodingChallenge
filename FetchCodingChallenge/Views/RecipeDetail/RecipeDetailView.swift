@@ -72,7 +72,7 @@ struct RecipeDetailView: View {
         .task {
             await viewModel.fetchMealDetail(by: meal.idMeal)
         }
-        .navigationTitle("Details")
+        .navigationTitle("Recipe Details")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -13,6 +13,12 @@ import Observation
 class RecipeListViewModel: ObservableObject {
     var meals = [Meal]()
     var isLoading = false
+    var searchTerm = ""
+    
+    var filteredRecipes: [Meal] {
+        guard !searchTerm.isEmpty else { return meals }
+        return meals.filter { $0.strMeal.localizedCaseInsensitiveContains(searchTerm) }
+    }
     
     func fetchMeals() async {
         guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeListView: View {
     @StateObject private var viewModel = RecipeListViewModel()
+   
     
     var body: some View {
         NavigationStack {
@@ -16,7 +17,7 @@ struct RecipeListView: View {
                 if viewModel.isLoading {
                     ProgressView()
                 } else {
-                    ForEach(viewModel.meals) { meal in
+                    ForEach(viewModel.filteredRecipes) { meal in
                         NavigationLink(destination: RecipeDetailView(meal: meal)) {
                             HStack {
                                 if let imageUrl = URL(string: meal.strMealThumb) {
@@ -47,7 +48,8 @@ struct RecipeListView: View {
                     }
                 }
             }
-            .navigationTitle("Dessert Recipes")
+            .navigationTitle("Recipes")
+            .searchable(text: $viewModel.searchTerm, prompt: "Search Recipe")
             .task {
                 await viewModel.fetchMeals()
             }
