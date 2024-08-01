@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import Observation
 
+@Observable
 class RecipeDetailViewModel: ObservableObject {
-    @Published var mealDetail: MealDetail?
-    @Published var isLoading = false
+    var mealDetail: MealDetail?
+    var isLoading = false
     
     func fetchMealDetail(by id: String) async {
         guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=\(id)") else {
